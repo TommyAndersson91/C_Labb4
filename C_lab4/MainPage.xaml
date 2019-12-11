@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="C_lab4.MainPage"
+             xmlns:viewmodel="clr-namespace:C_lab4.ViewModels"
+             BackgroundColor="Khaki"
+             >
+    <ContentPage.BindingContext>
+        <viewmodel:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Previous" Command="{Binding Previous}"/>
+        <ToolbarItem Text="Next" Command="{Binding Next}"/>
+</ContentPage.ToolbarItems>
+
+      <StackLayout Orientation="Vertical" VerticalOptions="Center" Spacing="20" Padding="30">
+           <Image Source="{Binding SelectedCountry.PictureUrl}" Aspect="AspectFit" HeightRequest="200"/>
+            <Label Text="{Binding SelectedCountry.Name, StringFormat='Country: {0}'}" HorizontalOptions="Center" FontAttributes="Bold"/>
+            <Label Text="{Binding SelectedCountry.Currency, StringFormat='Currency: {0}'}" HorizontalOptions="Center" FontAttributes="Bold"/>
+            <Label Text="{Binding SelectedCountry.Population, StringFormat='Population: {0}'}" HorizontalOptions="Center" FontAttributes="Bold"/>
+            <Label Text="{Binding SelectedCountry.Description, StringFormat='Description: {0}'}" HorizontalOptions="Center"/>
+    </StackLayout>
+</ContentPage>
